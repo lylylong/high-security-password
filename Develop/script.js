@@ -1,5 +1,5 @@
 // Assignment code here
-// setup all arr
+// setup all password types & arrays
 var specialCharacter = [
   "!",
   "@",
@@ -72,20 +72,20 @@ var uppercase = [
   "Z",
 ];
 
-// design the password types
+// for user to select the password types
 var passwordTypes = function () {
   var length = parseInt(prompt("Type your password length: choose 8 - 128"));
+  console.log("The password length is " + length);
+  if (isNaN(length) === true) {
+    alert("You must provide a NUMBER from 8 to 128, please start over!");
+    return;
+  }
   if (length < 8) {
     alert("You must provide a NUMBER at least 8, please start over!");
     return;
   }
   if (length > 128) {
     alert("You must provide a NUMBER no more than 128, please start over!");
-    return;
-  }
-  console.log("The password length is " + length);
-  if (isNaN(length) === true) {
-    alert("You must provide a NUMBER from 8 to 128, please start over!");
     return;
   }
 
@@ -109,12 +109,11 @@ var passwordTypes = function () {
     lowercaseInclude === false &&
     uppercaseInclude === false
   ) {
-    alert(
-      "You must include at least one type of characters, please start over!"
-    );
+    alert("You must pick at least one type of characters, please start over!");
     return;
   }
 
+  // all user input
   var passwordTypes = {
     length: length,
     specialCharacterInclude: specialCharacterInclude,
@@ -125,12 +124,16 @@ var passwordTypes = function () {
   return passwordTypes;
 };
 
+// randomly generate index
 var getRandom = function (arr) {
   var randomIndex = Math.floor(Math.random() * arr.length);
+
   var randomElement = arr[randomIndex];
+
   return randomElement;
 };
 
+// generate the password based on user input
 var generatePassword = function () {
   var types = passwordTypes();
   var result = [];
