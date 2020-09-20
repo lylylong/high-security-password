@@ -1,4 +1,4 @@
-# High Security Password
+# High Security Password Generator
 
 ## Description
 

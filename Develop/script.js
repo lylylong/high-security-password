@@ -1,5 +1,5 @@
 // Assignment code here
-// setup all password types & arrays
+// setup all password types & arrays as global variables
 var specialCharacter = [
   "!",
   "@",
@@ -13,6 +13,14 @@ var specialCharacter = [
   "-",
   "+",
   "_",
+  "<",
+  ">",
+  "(",
+  ")",
+  "{",
+  "}",
+  "[",
+  "]",
 ];
 var number = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
 var lowercase = [
@@ -74,6 +82,7 @@ var uppercase = [
 
 // for user to select the password types
 var passwordTypes = function () {
+  //for user to choose the length
   var length = parseInt(prompt("Type your password length: choose 8 - 128"));
   console.log("The password length is " + length);
   if (isNaN(length) === true) {
@@ -89,6 +98,7 @@ var passwordTypes = function () {
     return;
   }
 
+  // for the password types
   var specialCharacterInclude = confirm("Include special character(s)?");
   console.log(
     "Password will include special character(s): " + specialCharacterInclude
